@@ -11,10 +11,16 @@
             <directory>${project.basedir}/..</directory>
             <includes>
                 <include>readme.md</include>
-                <include>index.html</include>
                 <include>LICENSE*</include>
-                <include>img/*</include>
             </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/main/scripts</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>*</include>
+            </includes>
+            <fileMode>0755</fileMode>
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/target</directory>
@@ -25,4 +31,16 @@
             </includes>
         </fileSet>
     </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+              <include>*:jar:*</include>
+            </includes>
+            <excludes>
+                <exclude>*:sources</exclude>
+                <exclude>*:javadoc</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
 </assembly>
